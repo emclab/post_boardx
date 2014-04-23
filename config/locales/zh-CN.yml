@@ -1,0 +1,30 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+  
+zh-CN:
+  
+  #Partx
+  Successfully Saved! : '信息已保存！'
+  Successfully Updated! : '信息已更新！'
+  Data Error. Not Saved! : '数据错误。 信息无法保存！'
+  Data Error. Not Updated! : '数据错误。信息无法更新！'
+  Posts : '公告一览'
+  New Post : '新公告'
+  Edit Post : '更新公告'
+  Update Post : '更新公告'
+  Post Info : '公告内容'
+  Last Updated By         : '更改'  
+  Submitted By : '公告人'
+  Brief Note : '简注'
+  Yes : '是'
+  No  : '否'
+  yes : '是'
+  no  : '否'
+  Void : '作废'
+  Start Date : '开始日期'
+  Expire Date : '结束日期'
+  Post Start Date : '公告开始日期'
+  Post Expire Date : '公告结束日期'
+  Subject : '标题'
+  Content : '内容'
+  New Log : '新Log'

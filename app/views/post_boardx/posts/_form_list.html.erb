@@ -1,0 +1,42 @@
+ <% if @view_in_config && @erb_code %>
+  <%= render inline: ERB.new(@erb_code).result(binding) %>
+  
+  <% else %>
+<div class="pagination"><%= will_paginate models %></div>
+    <table class="table table-striped">
+		<tr>
+			<th>#</th>
+			<th><%= t('Post Start Date') %></th>
+			<th><%= t('Posted By') %></th>
+			<th><%= t('Subject') %></th>
+			<th><%= t('Content') %></th>
+			<th><%= t('Post Expire Date')%></th>
+			<th><%= t('Last Updated By') %></th>
+			<th></th>
+		</tr>
+		<% models.each do |r| %>
+		  <tr>
+		  	<td><%= link_to r.id, SUBURI + "/authentify/view_handler?index=1&url=#{CGI::escape post_path(r)}" %></td>
+			<td><%= prt(r, :start_date).strftime("%Y/%m/%d") if prt(r, :start_date).present? %></td>
+			<td><%= prt(r, 'submitted_by.name') %></td>
+			<td><%= prt(r, :subject) %></td>
+			<td><%= prt(r, :content)[0..40] %></td> 
+			<td><%= prt(r, :expire_date).strftime("%Y/%m/%d") if prt(r, :expire_date).present? %></td>
+			<td><%= prt(r, 'last_updated_by.name') %></td>    
+			<td><%= link_to t('Edit'), SUBURI + "/authentify/view_handler?index=1&url=#{CGI::escape edit_post_path(r)}", :class => BUTTONS_CLS['action']  if has_action_right?('update', params[:controller], r) %></td>
+		  </tr>
+		<% end %>
+	</table>
+	
+	<table class="table table-striped">
+	  <tr>
+	    <th>
+	    	<%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :class => BUTTONS_CLS['action']  %>
+	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    	<%= link_to t('New Post') , SUBURI + "/authentify/view_handler?index=1&url=#{CGI.escape new_post_path()}", :class => BUTTONS_CLS['action'] if has_action_right?('create', params[:controller]) %>
+	    </th>
+	  </tr>
+	</table>
+	
+	<% end %>
+	
