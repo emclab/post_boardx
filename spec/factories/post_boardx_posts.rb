@@ -8,5 +8,6 @@ FactoryGirl.define do
     last_updated_by_id 1
     category_id 1
     start_date Date.today
+    expire_date Date.today + 30.days
   end
 end

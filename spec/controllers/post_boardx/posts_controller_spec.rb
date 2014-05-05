@@ -49,7 +49,7 @@ module PostBoardx
         :sql_code => "PostBoardx::Post.where('post_boardx_posts.expire_date >= ? OR post_boardx_posts.expire_date IS NULL', Date.today).where('post_boardx_posts.start_date <= ?', Date.today).order('expire_date, start_date DESC')")     
         session[:user_id] = @u.id
         session[:user_privilege] = Authentify::UserPrivilegeHelper::UserPrivilege.new(@u.id)
-        qs = FactoryGirl.create(:post_boardx_post, :last_updated_by_id => @u.id, :expire_date => nil, :start_date => 5.days.ago)
+        qs = FactoryGirl.create(:post_boardx_post, :last_updated_by_id => @u.id, :expire_date =>Date.today + 50.days, :start_date => 5.days.ago)
         qs1 = FactoryGirl.create(:post_boardx_post, :last_updated_by_id => @u.id, :expire_date => Date.today + 2.days, :start_date => 10.days.ago)
         get 'index' , {:use_route => :post_boardx}
         assigns(:posts).should =~ [qs, qs1]     

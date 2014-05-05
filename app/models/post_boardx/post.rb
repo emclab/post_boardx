@@ -13,6 +13,6 @@ module PostBoardx
     belongs_to :submitted_by, :class_name => 'Authentify::User'
     belongs_to :category, :class_name => 'Commonx::MiscDefinition'   
     
-    validates :subject, :content, :start_date, :presence => true    
+    validates :subject, :content, :start_date, :expire_date, :presence => true    
   end
 end

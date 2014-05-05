@@ -21,5 +21,10 @@ module PostBoardx
       c = FactoryGirl.build(:post_boardx_post, :start_date => nil)
       c.should_not be_valid
     end
+    
+    it "should reject nil expire date" do
+      c = FactoryGirl.build(:post_boardx_post, :expire_date => nil)
+      c.should_not be_valid
+    end
   end
 end
