@@ -6,7 +6,7 @@
 	  <%= f.input :start_date, :label => t('Post Start Date'), :as => :string, :readonly => readonly?(@post, 'start_date') %>  
 	  <%= f.input :expire_date, :label => t('Post Expire Date'), :as => :string, :readonly => readonly?(@post, 'expire_date') %>
 	  <%= f.input :subject, :label => t('Subject'), :readonly => readonly?(@post, 'subject') %>
-	  <%= f.input :content, :label => t('Content'), :input_html => {:rows => 5}, :readonly => readonly?(@post, 'content') %>
+	  <%= f.input :content, :label => t('Content'), :input_html => {:rows => 8}, :readonly => readonly?(@post, 'content') %>
 	  <%= f.input :submitted_by_name, :label => t('Submitted by'), :readonly => true, :required => false, :input_html => {:value => @post.submitted_by.name} %>
 	  <%= f.input :last_updated_by_name, :label => t('Last Updated by'), :readonly => true, :required => false, :input_html => {:value => @post.last_updated_by.name} %>
 	  
