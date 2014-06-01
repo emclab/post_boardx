@@ -44,7 +44,7 @@
 	    <th>
   			<%= link_to t('Back'), SUBURI + "/authentify/view_handler?index=0", :id => 'close', :class => BUTTONS_CLS['action'] %>
   			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<%= link_to t('New Log'), SUBURI + commonx.new_log_path(:resource_id => @post.id, :resource_name => params[:controller], :subaction => 'public_post', :format => :js), :remote => true, 
+			<%= link_to t('New Log'), SUBURI + commonx.new_log_path(:resource_id => @post.id, :resource_name => params[:controller], :subaction => 'post_board', :format => :js), :remote => true, 
                           :id => 'new_log_link', :class => BUTTONS_CLS['action'] if has_action_right?('create_' + 'public_post', 'commonx/logs') %>
          </th>
 	  </tr>
